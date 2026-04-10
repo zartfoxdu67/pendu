@@ -73,7 +73,7 @@ def donne_nouvelle_lettre(lettres_trouvees: list[str], mot_choisi: str) -> list[
         nouvelle_lettre : list[str] : nouveau tableau des lettre
     """
     lettre_correcte = False
-    alphabet = "azertyuiopqsdfghjklmwxbnc"
+    alphabet = "azertyuiopqsdfghjklmwxbncv"
     while not lettre_correcte: 
         # Demande une lettre
         nouvelle_lettre = input("donne_moi_une_lettre : ")
@@ -106,6 +106,17 @@ def donne_nouvelle_lettre(lettres_trouvees: list[str], mot_choisi: str) -> list[
     # On retourne la nouvelle liste des lettres avec la nouvelle lettre dedans et si la lettre est dans le mot
     return lettres_trouvees, lettre_dans_mot
 
+def affiche_lettres (lettre_trouver):
+    for lettre_mot in lettre_trouver:
+        print(lettre_mot, end=" ")
+    print("")
+    
+
+    
+    """
+    
+    """
+
 
 if __name__ == "__main__":
     """
@@ -125,6 +136,8 @@ if __name__ == "__main__":
     while not jeu_est_fini(mot_choisi, lettres_trouvees) and nb_vies > 0 : 
         # Le programme demande une lettre
         # Pour en faire quoi - Pour l'ajouter a la liste des lettres trouvées
+        print("voici les lettre deja donner")
+        affiche_lettres(lettres_trouvees)
         lettres_trouvees, lettre_dans_mot = donne_nouvelle_lettre(lettres_trouvees, mot_choisi)
         if not lettre_dans_mot:
             nb_vies = nb_vies - 1
